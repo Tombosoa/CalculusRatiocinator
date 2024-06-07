@@ -15,15 +15,20 @@ public class Composition {
     private Affirmation affirmation2;
 
     public String obtenirValeurDeVérité(){
-        if(conjonctionDeCoordination.equals(ConjonctionDeCoordination.et)){
-            return tableEt(affirmation1.isValeur(), affirmation2.isValeur());
-        } else if (conjonctionDeCoordination.equals(ConjonctionDeCoordination.ou)) {
-            return tableOu(affirmation1.isValeur(), affirmation2.isValeur());
-        } else if (conjonctionDeCoordination.equals(ConjonctionDeCoordination.donc)) {
-            return tableImplication(affirmation1.isValeur(), affirmation2.isValeur());
-        } else{
-            return "je ne sais pas";
+        if(pasSimpleAffirmation(affirmation1) && pasSimpleAffirmation(affirmation2)){
+            if(conjonctionDeCoordination.equals(ConjonctionDeCoordination.et)){
+                return tableEt(affirmation1.isValeur(), affirmation2.isValeur());
+            } else if (conjonctionDeCoordination.equals(ConjonctionDeCoordination.ou)) {
+                return tableOu(affirmation1.isValeur(), affirmation2.isValeur());
+            } else if (conjonctionDeCoordination.equals(ConjonctionDeCoordination.donc)) {
+                return tableImplication(affirmation1.isValeur(), affirmation2.isValeur());
+            }
         }
+        return "je ne sais pas";
+    }
+
+    private boolean pasSimpleAffirmation(Affirmation affirmation){
+        return affirmation.isValeur() == affirmation.isValeurSecondaire();
     }
 
     private String tableEt(boolean valeur1, boolean valeur2) {
