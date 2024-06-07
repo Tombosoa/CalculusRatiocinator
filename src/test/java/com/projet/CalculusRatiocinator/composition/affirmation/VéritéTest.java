@@ -9,7 +9,7 @@ public class VéritéTest {
     @Test
     void la_vérité_est_toujours_vrai(){
         Vérité vérité = new Vérité("Lou est beau");
-        assertTrue(vérité.isValeur());
+        assertTrue(vérité.isValeur() && vérité.isValeurSecondaire());
     }
 
 }
