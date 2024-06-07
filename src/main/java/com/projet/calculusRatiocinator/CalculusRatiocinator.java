@@ -1,4 +1,4 @@
 package com.projet.calculusRatiocinator;
 
-public class CalculusRationcinator {
+public class CalculusRatiocinator {
 }
