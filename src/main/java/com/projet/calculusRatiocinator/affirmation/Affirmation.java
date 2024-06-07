@@ -12,4 +12,5 @@ public sealed abstract class Affirmation permits
         Mensonge, Vérité, SimpleAffirmation {
     protected final String enconcé;
     protected final boolean valeur;
+    protected final boolean valeurSecondaire;
 }
